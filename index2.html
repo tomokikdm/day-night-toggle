@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Day & Night Toggle</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <div class="toggle-wrapper"><!-- トグル全体を包むラッパー -->
+    <div class="slider" id="slider"><!-- スライダー本体（ON/OFFの背景になる） -->
+      <div class="handle" id="handle"></div><!-- つまみ部分（クリックやドラッグで左右に動く） -->
+    </div>
+  </div>
+
+  <div class="scene" id="scene">
+    <div class="mode-label" id="modeLabel">Morning Mode</div>
+    <div class="sun"></div>
+    <div class="moon"></div>
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    
+
+    <div class="stars">
+      <div class="star" style="top:40px; left:60px;"></div>
+      <div class="star" style="top:90px; left:150px;"></div>
+      <div class="star" style="top:30px; left:250px;"></div>
+      <div class="star" style="top:120px; left:300px;"></div>
+    </div>
+
+    <svg class="mountains" viewBox="0 0 800 600" preserveAspectRatio="none">
+      <path id="back-mountain" d="M0 600 Q150 80 300 300 T800 600 T800 300" />
+      <path id="front-mountain" d="M0 600 Q200 260 400 300 T800 600" />
+      <defs>
+        <linearGradient id="mountainHighlight" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffaa88" />
+          <stop offset="100%" stop-color="transparent" />
+        </linearGradient>
+      </defs>
+      <path d="M0 600 Q200 450 400 600 T800 600" fill="url(#mountainHighlight)" opacity="0.6"/>
+    </svg>
+
+   
+    <div class="fog"></div>
+    <div class="tree"></div>
+    <div class="land"></div>
+  </div>
+
+  <script src="script2.js"></script>
+</body>
+</html>

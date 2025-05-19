@@ -1,0 +1,208 @@
+body{
+  margin:0;
+  overflow: hidden;
+  font-family: 'Segoe UI',sans-serif;
+}
+
+.scene{
+  width: 100vw;
+  height: 100vh;
+  position:relative;
+  background: linear-gradient(to top,#a0d8ef,#ffffff);
+  transition:background 1s;
+  overflow:hidden;
+}
+
+.sun, .moon{
+  width: 120px;
+  height: 120px; 
+  border-radius: 50%;
+  position: absolute;
+  top:60px;
+  left:50%;
+  transform: translateX(-50%);
+  transition: opacity 1s, box-shadow 1s;
+}
+
+.sun{
+  background-color: #ff944d;
+  box-shadow: 0 0 60px #fff4b2;
+  opacity:1;
+}
+
+.moon{
+  background: radial-gradient(circle at center,#ffffff,#ccccff);
+  box-shadow: 0 0 60px #ffffff;
+  opacity: 0;
+}
+
+.land{
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  height: 200px;
+  background:#69a87c;
+  transition: background 1s;
+  z-index: 5;
+}
+  
+.toggle-wrapper{
+  position:absolute;
+  top:20px;
+  left: 20px;
+  width: 100px;
+  height: 40px;
+  background-color: #ccc;
+  border-radius: 20px;
+  cursor:pointer;
+  z-index:10;
+}
+
+.slider{
+  width: 100%;
+  height:100%;
+  position:relative;
+  background: linear-gradient(to right,#ffd700,#001848);
+  border-radius: 20px;
+}
+
+.handle{
+  width:36px ;
+  height: 36px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top:2px;
+  left:2px;
+  transition: left 0.3s;
+}
+
+.star{
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:0 0 6px white;
+  opacity: 0;
+  animation: blink 2s infinite alternate;
+}
+
+@keyframes blink {
+  0%{opacity: 0.3;transform: scale(1);}
+  100%{opacity: 1;transform: scale(1.3);}
+}
+
+.night.star{
+  opacity: 1;
+}
+
+.tree{
+  position:absolute;
+  bottom: 200px;
+  left: 40px;
+  width: 40px;
+  height: 80px;
+  background: #4c2a1a;
+  z-index: 6;
+}
+
+.tree::after{
+  content:'';
+  position:absolute;
+  top: -60px;
+  left: -30px;
+  width: 100px;
+  height: 80px;
+  background: #317873;
+  border-radius: 50%;
+  transition: background 1s;
+}
+
+.night.tree::after{
+  background: #1d4038;
+}
+
+
+.mountains{
+  position: absolute;
+  bottom: 200px;
+  width: 100%;
+  height: 300px;
+  z-index: 1;
+}
+
+#back-mountain,#front-mountain{
+  transition: fill 1s;
+}
+
+
+
+.night .sun{
+  opacity: 0;
+}
+
+.night .moon{
+opacity: 1;
+}
+
+.night .land{
+  background:#1e3742;
+}
+
+.scene.night #back-mountain{
+  fill:#a38fc9 !important;
+
+}
+.scene.night #front-mountain{
+  fill:#814aa9 !important;
+}
+
+.night .handle{
+  left: 62px;
+}
+.mode-label{
+  position: absolute;
+  top:20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: wheat;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  z-index: 20;
+  transition: color 0.5s;
+}
+
+#back-mountain{
+  fill: #d63312;
+  transition: fill 1s;
+}
+
+#front-mountain{
+  fill: #c66741;
+  transition: fill 1s;
+}
+
+.cloud{
+  position: absolute;
+  width: 200px;
+  height: 60px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 60px 0 #fff,120px 0 #fff;
+  opacity: 0.6;
+  animation: cloudMove 10s linear infinite;
+  top: 60px;
+  z-index: 2;
+}
+.cloud2{
+  top:100px;
+  left:200px;
+  animation-duration: 15s;
+}
+
+@keyframes cloudMove {
+  0% {left: -300px;}
+  100% {left: 100px;}
+}
